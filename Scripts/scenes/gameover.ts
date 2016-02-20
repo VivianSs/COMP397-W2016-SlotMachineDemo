@@ -17,7 +17,7 @@ module scenes {
            
             // add the WELCOME Label to the MENU scene
             this._gameOverLabel = new objects.Label(
-                "Game Over", "0PX Consolas", "#000000",
+                "Game Over", "60PX Consolas", "#000000",
                 config.Screen.CENTER_X,
                 config.Screen.CENTER_Y);
             this.addChild(this._gameOverLabel);

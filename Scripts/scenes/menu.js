@@ -16,7 +16,7 @@ var scenes;
         // Start Method
         Menu.prototype.start = function () {
             // add the WELCOME Label to the MENU scene
-            this._welcomeLabel = new objects.Label("SLOT MACHINE", "0PX Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y);
+            this._welcomeLabel = new objects.Label("SLOT MACHINE", "60PX Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y);
             this.addChild(this._welcomeLabel);
             // add the START button to the MENU scene
             this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 80);

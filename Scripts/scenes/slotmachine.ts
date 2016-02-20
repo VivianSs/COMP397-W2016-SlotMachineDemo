@@ -16,7 +16,7 @@ module scenes {
            
             // add the SLOT MACHINE Label to the MENU scene
             this._slotMachineLabel = new objects.Label(
-                "GAME GOES HERE", "0PX Consolas", "#000000",
+                "GAME GOES HERE", "60PX Consolas", "#000000",
                 config.Screen.CENTER_X,
                 config.Screen.CENTER_Y);
             this.addChild(this._slotMachineLabel);
