@@ -14,13 +14,14 @@ var menu: scenes.Menu;
 var slotMachine: scenes.SlotMachine;
 var gameOver: scenes.GameOver
 
-var assetData:objects.Asset[] = [
-    {id: "BackButton", src:"../../Assets/images/BackButton.png"},  
-    {id: "LeftCaveButton", src:"../../Assets/images/LeftCaveButton.png"},
-    {id: "Nextbutton", src:"../../Assets/images/Nextbutton.png"},
-    {id: "RightCaveButton", src:"../../Assets/images/RightCaveButton.png"},
-    {id: "StartButton", src:"../../Assets/images/StartButton.png"},
-    {id: "StartOverButton", src:"../../Assets/images/StartOverButton.png"}
+var assetData: objects.Asset[] = [
+    { id: "BackButton", src: "../../Assets/images/BackButton.png" },
+    { id: "LeftCaveButton", src: "../../Assets/images/LeftCaveButton.png" },
+    { id: "Nextbutton", src: "../../Assets/images/Nextbutton.png" },
+    { id: "RightCaveButton", src: "../../Assets/images/RightCaveButton.png" },
+    { id: "StartButton", src: "../../Assets/images/StartButton.png" },
+    { id: "StartOverButton", src: "../../Assets/images/StartOverButton.png" },
+    { id: "SlotMachine", src: "../../Assets/images/SlotMachine.png" }
 ];
 
 function preload() {
