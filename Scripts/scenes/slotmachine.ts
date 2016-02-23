@@ -116,7 +116,6 @@ module scenes {
             }
             return betLine;
         }
-
         
         //EVENT HANDLERS ++++++++++++++++++++
         private _bet1ButtonClick(event: createjs.MouseEvent): void {
@@ -134,13 +133,6 @@ module scenes {
         private _spinButtonClick(event: createjs.MouseEvent): void {
             console.log("Spin those reels!");
             console.log(this._reels());
-      
         }
-
-
-
-
-
-
     }
 }
