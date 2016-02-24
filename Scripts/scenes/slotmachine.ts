@@ -3,10 +3,10 @@ module scenes {
     export class SlotMachine extends objects.Scene {
         //PRIVATE INSTANCE VARIABLES ++++++++++++
         private _backgroundImage: createjs.Bitmap;
-        private _bet1Button: objects.Button;
-        private _bet10Button: objects.Button;
-        private _bet100Button: objects.Button;
-        private _spinButton: objects.Button;
+        private _bet1Button: objects.SpriteButton;
+        private _bet10Button: objects.SpriteButton;
+        private _bet100Button: objects.SpriteButton;
+        private _spinButton: objects.SpriteButton;
 
         private _grapes = 0;
         private _bananas = 0;
@@ -16,6 +16,17 @@ module scenes {
         private _bells = 0;
         private _sevens = 0;
         private _blanks = 0;
+
+        private _tile1: objects.GameObject;
+        private _tile2: objects.GameObject;
+        private _tile3: objects.GameObject;
+        
+       
+        
+        // GAME VARIABLES
+
+        private _spinResult: string[];
+        
         // CONSTRUCTOR ++++++++++++++++++++++
         constructor() {
             super();
@@ -30,24 +41,36 @@ module scenes {
             this.addChild(this._backgroundImage);
             
             // add Bet1Button to the scene
-            this._bet1Button = new objects.Button("Bet1Button", 168, 382, false);
+            this._bet1Button = new objects.SpriteButton("bet1Button", 168, 382);
             this.addChild(this._bet1Button);
             this._bet1Button.on("click", this._bet1ButtonClick, this); 
             
             // add Bet10Button to the scene
-            this._bet10Button = new objects.Button("Bet10Button", 240, 382, false);
+            this._bet10Button = new objects.SpriteButton("bet10Button", 240, 382);
             this.addChild(this._bet10Button);
             this._bet10Button.on("click", this._bet10ButtonClick, this); 
             
             // add Bet100Button to the scene
-            this._bet100Button = new objects.Button("Bet100Button", 312, 382, false);
+            this._bet100Button = new objects.SpriteButton("Bet100Button", 312, 382);
             this.addChild(this._bet100Button);
             this._bet100Button.on("click", this._bet100ButtonClick, this); 
             
             // add SpinButton to the scene
-            this._spinButton = new objects.Button("SpinButton", 402, 382, false);
+            this._spinButton = new objects.SpriteButton("SpinButton", 402, 382);
             this.addChild(this._spinButton);
-            this._spinButton.on("click", this._spinButtonClick, this); 
+            this._spinButton.on("click", this._spinButtonClick, this);
+
+
+
+            this._tile1 = new objects.GameObject("blank", 216, 220);
+            this.addChild(this._tile1);
+
+            this._tile2 = new objects.GameObject("blank", 300, 220);
+            this.addChild(this._tile2);
+
+            this._tile3 = new objects.GameObject("blank", 383, 220);
+            this.addChild(this._tile3);
+            
         
             // setup Background 
             this._setupBackground("WhiteBackground");
@@ -130,8 +153,17 @@ module scenes {
         }
 
         private _spinButtonClick(event: createjs.MouseEvent): void {
-            console.log("Spin those reels!");
-            console.log(this._reels());
+            this._spinResult = this._reels();
+
+            this._tile1.gotoAndStop(this._spinResult[0]);
+            this._tile2.gotoAndStop(this._spinResult[1]);
+            this._tile3.gotoAndStop(this._spinResult[2]);
+
+
+            console.log(this._spinResult[0] + " - " + this._spinResult[1] + " - " + this._spinResult[2]);
+
+
+
         }
     }
 }

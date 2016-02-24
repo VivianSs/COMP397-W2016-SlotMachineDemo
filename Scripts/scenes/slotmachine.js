@@ -27,21 +27,27 @@ var scenes;
             this._backgroundImage = new createjs.Bitmap(assets.getResult("SlotMachine"));
             this.addChild(this._backgroundImage);
             // add Bet1Button to the scene
-            this._bet1Button = new objects.Button("Bet1Button", 168, 382, false);
+            this._bet1Button = new objects.SpriteButton("bet1Button", 168, 382);
             this.addChild(this._bet1Button);
             this._bet1Button.on("click", this._bet1ButtonClick, this);
             // add Bet10Button to the scene
-            this._bet10Button = new objects.Button("Bet10Button", 240, 382, false);
+            this._bet10Button = new objects.SpriteButton("bet10Button", 240, 382);
             this.addChild(this._bet10Button);
             this._bet10Button.on("click", this._bet10ButtonClick, this);
             // add Bet100Button to the scene
-            this._bet100Button = new objects.Button("Bet100Button", 312, 382, false);
+            this._bet100Button = new objects.SpriteButton("Bet100Button", 312, 382);
             this.addChild(this._bet100Button);
             this._bet100Button.on("click", this._bet100ButtonClick, this);
             // add SpinButton to the scene
-            this._spinButton = new objects.Button("SpinButton", 402, 382, false);
+            this._spinButton = new objects.SpriteButton("SpinButton", 402, 382);
             this.addChild(this._spinButton);
             this._spinButton.on("click", this._spinButtonClick, this);
+            this._tile1 = new objects.GameObject("blank", 216, 220);
+            this.addChild(this._tile1);
+            this._tile2 = new objects.GameObject("blank", 300, 220);
+            this.addChild(this._tile2);
+            this._tile3 = new objects.GameObject("blank", 383, 220);
+            this.addChild(this._tile3);
             // setup Background 
             this._setupBackground("WhiteBackground");
             //FadeIn
@@ -112,8 +118,11 @@ var scenes;
             console.log("Bet 100 Credit");
         };
         SlotMachine.prototype._spinButtonClick = function (event) {
-            console.log("Spin those reels!");
-            console.log(this._reels());
+            this._spinResult = this._reels();
+            this._tile1.gotoAndStop(this._spinResult[0]);
+            this._tile2.gotoAndStop(this._spinResult[1]);
+            this._tile3.gotoAndStop(this._spinResult[2]);
+            console.log(this._spinResult[0] + " - " + this._spinResult[1] + " - " + this._spinResult[2]);
         };
         return SlotMachine;
     })(objects.Scene);

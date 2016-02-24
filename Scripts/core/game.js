@@ -4,6 +4,7 @@ var assets;
 var canvas;
 var stage;
 var stats;
+var atlas;
 var currentScene;
 var scene;
 // Game Scenes
@@ -23,11 +24,46 @@ var assetData = [
     { id: "BlackBackground", src: "../../Assets/images/BlackBackground.png" },
     { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" }
 ];
+var data = {
+    "images": [
+        "../../Assets/images/atlas.png"
+    ],
+    "frames": [
+        [0, 0, 69, 69, 0, 0, 0],
+        [0, 69, 69, 69, 0, 0, 0],
+        [0, 138, 69, 69, 0, 0, 0],
+        [69, 0, 69, 69, 0, 0, 0],
+        [138, 0, 64, 64, 0, 0, 0],
+        [207, 0, 64, 64, 0, 0, 0],
+        [207, 64, 69, 69, 0, 0, 0],
+        [69, 69, 69, 69, 0, 0, 0],
+        [138, 69, 64, 64, 0, 0, 0],
+        [207, 128, 69, 69, 0, 0, 0],
+        [69, 138, 69, 69, 0, 0, 0],
+        [144, 212, 69, 69, 0, 0, 0],
+        [207, 192, 64, 64, 0, 0, 0]
+    ],
+    "animations": {
+        "banana": [0],
+        "bar": [1],
+        "bell": [2],
+        "blank": [3],
+        "cherry": [4],
+        "bet100Button": [5],
+        "bet10Button": [6],
+        "grapes": [7],
+        "orange": [8],
+        "bet1Button": [9],
+        "seven": [10],
+        "spinButton": [11]
+    },
+};
 function preload() {
     assets = new createjs.LoadQueue();
     assets.installPlugin(createjs.Sound);
     assets.on("complete", init, this);
     assets.loadManifest(assetData);
+    atlas = new createjs.SpriteSheet(data);
 }
 function init() {
     // create a reference the HTML canvas Element
