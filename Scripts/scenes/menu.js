@@ -23,6 +23,10 @@ var scenes;
             this.addChild(this._startButton);
             // START Button event listener
             this._startButton.on("click", this._startButtonClick, this);
+            // set up Background
+            this._setupBackground();
+            //FadeIn
+            this._fadeIn();
             // add this scene to the global stage container
             stage.addChild(this);
         };
