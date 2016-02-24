@@ -24,9 +24,9 @@ var scenes;
             // START Button event listener
             this._startButton.on("click", this._startButtonClick, this);
             // set up Background
-            this._setupBackground();
+            this._setupBackground("WhiteBackground");
             //FadeIn
-            this._fadeIn();
+            this._fadeIn(500);
             // add this scene to the global stage container
             stage.addChild(this);
         };
@@ -36,9 +36,12 @@ var scenes;
         //EVENT HANDLERS ++++++++++++++++++++
         // LEFT_CAVE Button click event handler
         Menu.prototype._startButtonClick = function (event) {
-            // Switch to the SLOT_MACHINE Scene
-            scene = config.Scene.SLOT_MACHINE;
-            changeScene();
+            //FadeOut
+            this._fadeOut(500, function () {
+                // Switch to the SLOT_MACHINE Scene
+                scene = config.Scene.SLOT_MACHINE;
+                changeScene();
+            });
         };
         return Menu;
     })(objects.Scene);
