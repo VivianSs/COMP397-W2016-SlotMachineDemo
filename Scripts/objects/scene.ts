@@ -32,7 +32,7 @@ module objects {
             createjs.Tween.get(this._blackBackground).to({ alpha: 0 }, transitionTime, createjs.Ease.getPowInOut(2));
         }
         
-        // FadeIn method
+        // FadeOut method
         protected _fadeOut(transitionTime:number,callback:any): void {
             this._blackBackground.alpha = 0;
             createjs.Tween.get(this._blackBackground).to({ alpha: 1 }, transitionTime, createjs.Ease.getPowInOut(2)).call(callback);

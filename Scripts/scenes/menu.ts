@@ -33,10 +33,10 @@ module scenes {
             this._startButton.on("click", this._startButtonClick, this);
             
             // set up Background
-            this._setupBackground();
+            this._setupBackground("WhiteBackground");
             
             //FadeIn
-            this._fadeIn();
+            this._fadeIn(500);
             
             
             
@@ -54,11 +54,14 @@ module scenes {
         
         // LEFT_CAVE Button click event handler
         private _startButtonClick(event: createjs.MouseEvent) {
-            // Switch to the SLOT_MACHINE Scene
-            scene = config.Scene.SLOT_MACHINE;
-            changeScene();
+            //FadeOut
+            this._fadeOut(500, () => {
+                    
+                // Switch to the SLOT_MACHINE Scene
+                scene = config.Scene.SLOT_MACHINE;
+                changeScene();
+            })
+
         }
-
-
     }
 }
