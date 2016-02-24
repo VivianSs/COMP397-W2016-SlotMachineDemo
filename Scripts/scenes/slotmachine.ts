@@ -49,8 +49,12 @@ module scenes {
             this.addChild(this._spinButton);
             this._spinButton.on("click", this._spinButtonClick, this); 
         
-         
-        
+            // setup Background 
+            this._setupBackground("WhiteBackground");
+            
+            //FadeIn
+            this._fadeIn(500);
+            
             // add this scene to the global stage container
             stage.addChild(this);
         }
