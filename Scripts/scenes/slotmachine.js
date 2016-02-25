@@ -27,11 +27,11 @@ var scenes;
             this._backgroundImage = new createjs.Bitmap(assets.getResult("SlotMachine"));
             this.addChild(this._backgroundImage);
             // add Bet1Button to the scene
-            this._bet1Button = new objects.SpriteButton("bet1Button", 168, 382);
+            this._bet1Button = new objects.SpriteButton("Bet1Button", 168, 382);
             this.addChild(this._bet1Button);
             this._bet1Button.on("click", this._bet1ButtonClick, this);
             // add Bet10Button to the scene
-            this._bet10Button = new objects.SpriteButton("bet10Button", 240, 382);
+            this._bet10Button = new objects.SpriteButton("Bet10Button", 240, 382);
             this.addChild(this._bet10Button);
             this._bet10Button.on("click", this._bet10ButtonClick, this);
             // add Bet100Button to the scene
@@ -42,11 +42,11 @@ var scenes;
             this._spinButton = new objects.SpriteButton("SpinButton", 402, 382);
             this.addChild(this._spinButton);
             this._spinButton.on("click", this._spinButtonClick, this);
-            this._tile1 = new objects.GameObject("blank", 216, 220);
+            this._tile1 = new objects.GameObject("Blank", 216, 220);
             this.addChild(this._tile1);
-            this._tile2 = new objects.GameObject("blank", 300, 220);
+            this._tile2 = new objects.GameObject("Blank", 300, 220);
             this.addChild(this._tile2);
-            this._tile3 = new objects.GameObject("blank", 383, 220);
+            this._tile3 = new objects.GameObject("Blank", 383, 220);
             this.addChild(this._tile3);
             // setup Background 
             this._setupBackground("WhiteBackground");
