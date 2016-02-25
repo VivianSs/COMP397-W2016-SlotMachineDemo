@@ -8,7 +8,10 @@ module scenes {
         private _bet100Button: objects.SpriteButton;
         private _spinButton: objects.SpriteButton;
 
-        
+        private _resetButton: objects.Button;
+        private _quitButton: objects.Button;
+
+
 
         private _grapes = 0;
         private _bananas = 0;
@@ -40,6 +43,16 @@ module scenes {
             this._backgroundImage = new createjs.Bitmap(assets.getResult("SlotMachine"));
             this.addChild(this._backgroundImage);
             
+            //add reset button to the scene
+            this._resetButton = new objects.Button("ResetButton", 180, 157, false);
+            this.addChild(this._resetButton);
+            this._resetButton.on("click", this._resetButtonClick, this);
+            
+            //add quit button
+            this._quitButton = new objects.Button("QuitButton", 430, 158, false);
+            this.addChild(this._quitButton);
+            this._quitButton.on("click", this._quitButtonClick, this);
+            
             // add Bet1Button to the scene
             this._bet1Button = new objects.SpriteButton("Bet1Button", 168, 382);
             this.addChild(this._bet1Button);
@@ -59,7 +72,6 @@ module scenes {
             this._spinButton = new objects.SpriteButton("SpinButton", 402, 382);
             this.addChild(this._spinButton);
             this._spinButton.on("click", this._spinButtonClick, this);
-            
 
 
             this._tile1 = new objects.GameObject("Blank", 216, 220);
@@ -103,7 +115,7 @@ module scenes {
                 outCome[spin] = Math.floor((Math.random() * 65) + 1);
                 switch (outCome[spin]) {
                     case this._checkRange(outCome[spin], 1, 27):  // 41.5% probability
-                        betLine[spin] = "blank";
+                        betLine[spin] = "Blank";
                         this._blanks++;
                         break;
                     case this._checkRange(outCome[spin], 28, 37): // 15.4% probability
@@ -150,6 +162,18 @@ module scenes {
 
         private _bet100ButtonClick(event: createjs.MouseEvent): void {
             console.log("Bet 100 Credit");
+        }
+
+        private _resetButtonClick(event: createjs.MouseEvent): void {
+
+        }
+
+        private _quitButtonClick(event: createjs.MouseEvent): void {
+            var response = confirm("Are you sure you want to Power OFF the game ?");
+            if(response == true)
+            {
+                window.close();
+            }
         }
 
         private _spinButtonClick(event: createjs.MouseEvent): void {

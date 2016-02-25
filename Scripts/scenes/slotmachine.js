@@ -26,6 +26,14 @@ var scenes;
             // add background image to the scene
             this._backgroundImage = new createjs.Bitmap(assets.getResult("SlotMachine"));
             this.addChild(this._backgroundImage);
+            //add reset button to the scene
+            this._resetButton = new objects.Button("ResetButton", 180, 157, false);
+            this.addChild(this._resetButton);
+            this._resetButton.on("click", this._resetButtonClick, this);
+            //add quit button
+            this._quitButton = new objects.Button("QuitButton", 430, 158, false);
+            this.addChild(this._quitButton);
+            this._quitButton.on("click", this._quitButtonClick, this);
             // add Bet1Button to the scene
             this._bet1Button = new objects.SpriteButton("Bet1Button", 168, 382);
             this.addChild(this._bet1Button);
@@ -72,7 +80,7 @@ var scenes;
                 outCome[spin] = Math.floor((Math.random() * 65) + 1);
                 switch (outCome[spin]) {
                     case this._checkRange(outCome[spin], 1, 27):
-                        betLine[spin] = "blank";
+                        betLine[spin] = "Blank";
                         this._blanks++;
                         break;
                     case this._checkRange(outCome[spin], 28, 37):
@@ -116,6 +124,14 @@ var scenes;
         };
         SlotMachine.prototype._bet100ButtonClick = function (event) {
             console.log("Bet 100 Credit");
+        };
+        SlotMachine.prototype._resetButtonClick = function (event) {
+        };
+        SlotMachine.prototype._quitButtonClick = function (event) {
+            var response = confirm("Are you sure you want to Power OFF the game ?");
+            if (response == true) {
+                window.close();
+            }
         };
         SlotMachine.prototype._spinButtonClick = function (event) {
             this._spinResult = this._reels();
