@@ -25,6 +25,7 @@ var assetData = [
     { id: "QuitButton", src: "../../Assets/images/QuitButton.png" },
     { id: "BlackBackground", src: "../../Assets/images/BlackBackground.png" },
     { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" },
+    { id: "RedBackground", src: "../../Assets/images/RedBackground.png" },
     { id: "Banana", src: "../../Assets/images/Banana.png" },
     { id: "Orange", src: "../../Assets/images/Orange.png" },
     { id: "Blank", src: "../../Assets/images/Blank.png" },

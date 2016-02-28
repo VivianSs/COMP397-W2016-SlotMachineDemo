@@ -72,7 +72,7 @@ var scenes;
             // initialize array of bitmaps
             this._initializeBitmapArray();
             // setup Background 
-            this._setupBackground("BlackBackground");
+            this._setupBackground(assets.getResult("BlackBackground"));
             //FadeIn
             this._fadeIn(500);
             // add this scene to the global stage container

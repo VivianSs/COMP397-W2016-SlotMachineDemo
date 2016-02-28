@@ -127,7 +127,7 @@ module scenes {
             this._initializeBitmapArray();
            
             // setup Background 
-            this._setupBackground("BlackBackground");
+            this._setupBackground(assets.getResult("BlackBackground"));
             
             //FadeIn
             this._fadeIn(500);
