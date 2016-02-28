@@ -72,7 +72,7 @@ var scenes;
             // initialize array of bitmaps
             this._initializeBitmapArray();
             // setup Background 
-            this._setupBackground("WhiteBackground");
+            this._setupBackground("BlackBackground");
             //FadeIn
             this._fadeIn(500);
             // add this scene to the global stage container
@@ -239,7 +239,10 @@ var scenes;
                 this._betText.text = this.playerBet.toString();
             }
             else {
-                alert("You don't have enough money to place the bet");
+                this._fadeOut(500, function () {
+                    scene = config.Scene.GAME_OVER;
+                    changeScene();
+                });
             }
         };
         //EVENT HANDLERS ++++++++++++++++++++
@@ -284,7 +287,7 @@ var scenes;
                 console.log(bitmap[0] + " - " + bitmap[1] + " - " + bitmap[2]);
             }
             else {
-                alert("You don't place a bet amount");
+                alert("You don't specify a bet amount");
             }
             //reset player's bet to the zero
             this.playerBet = 0;

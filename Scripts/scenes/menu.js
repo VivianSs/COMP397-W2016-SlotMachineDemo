@@ -16,7 +16,7 @@ var scenes;
         // Start Method
         Menu.prototype.start = function () {
             // add the WELCOME Label to the MENU scene
-            this._welcomeLabel = new objects.Label("SLOT MACHINE", "60PX Consolas", "#000000", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
+            this._welcomeLabel = new objects.Label("SLOT MACHINE", "60PX Engravers MT", "#FEBC18", config.Screen.CENTER_X, config.Screen.CENTER_Y, true);
             this.addChild(this._welcomeLabel);
             // add the START button to the MENU scene
             this._startButton = new objects.Button("StartButton", config.Screen.CENTER_X, config.Screen.CENTER_Y + 80, true);
@@ -24,7 +24,8 @@ var scenes;
             // START Button event listener
             this._startButton.on("click", this._startButtonClick, this);
             // set up Background
-            this._setupBackground("WhiteBackground");
+            //this._setupBackground("WhiteBackground");
+            this._setupBackground("BlackBackground");
             //FadeIn
             this._fadeIn(500);
             // add this scene to the global stage container

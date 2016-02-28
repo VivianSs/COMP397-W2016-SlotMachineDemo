@@ -127,7 +127,7 @@ module scenes {
             this._initializeBitmapArray();
            
             // setup Background 
-            this._setupBackground("WhiteBackground");
+            this._setupBackground("BlackBackground");
             
             //FadeIn
             this._fadeIn(500);
@@ -311,9 +311,11 @@ module scenes {
                 this._betText.text = this.playerBet.toString();
             }
             else {
-                alert("You don't have enough money to place the bet");
+                this._fadeOut(500, () => {
+                    scene = config.Scene.GAME_OVER;
+                    changeScene();
+                })
             }
-
         }
         
         //EVENT HANDLERS ++++++++++++++++++++
@@ -335,13 +337,13 @@ module scenes {
         }
 
         private _resetButtonClick(event: createjs.MouseEvent): void {
-              
+
             this._resetAll();
             this._creditsText.text = this.playerMoney.toString();
             this._betText.text = this.playerBet.toString();
             this._resultText.text = this.winnings.toString();
             this._jackpotText.text = this.jackpot.toString();
-            
+
         }
 
         private _quitButtonClick(event: createjs.MouseEvent): void {
@@ -369,11 +371,12 @@ module scenes {
                 console.log(bitmap[0] + " - " + bitmap[1] + " - " + bitmap[2]);
             }
             else {
-                alert("You don't place a bet amount");
+                alert("You don't specify a bet amount");
             }
             //reset player's bet to the zero
             this.playerBet = 0;
             this._betText.text = this.playerBet.toString();
         }
+
     }
 }

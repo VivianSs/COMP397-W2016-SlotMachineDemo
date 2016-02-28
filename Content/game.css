@@ -1,16 +1,21 @@
 ﻿body {
-    background-color: darkgray;
+    margin-left: 10%;
+    margin-right: 10%;
+   
+   
 }
 
 canvas {
     border: 1px solid black;
     border-radius: 10px;
     text-align: center;
-    margin-left: 10%;
-    background-color: white;
+    margin-left: 13%;
+    margin-top: 8%;
+    background-color:black;
 }
 
 .game {
     width: 80%;
-    margin: 0 auto;
+    margin: 0 auto;  
+    background-image: url("../../Assets/images/RedBackground.jpg");
 }

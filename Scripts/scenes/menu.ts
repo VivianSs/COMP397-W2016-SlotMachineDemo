@@ -17,7 +17,7 @@ module scenes {
            
             // add the WELCOME Label to the MENU scene
             this._welcomeLabel = new objects.Label(
-                "SLOT MACHINE", "60PX Consolas", "#000000",
+                "SLOT MACHINE", "60PX Engravers MT", "#FEBC18",
                 config.Screen.CENTER_X,
                 config.Screen.CENTER_Y, true);
             this.addChild(this._welcomeLabel);
@@ -33,8 +33,8 @@ module scenes {
             this._startButton.on("click", this._startButtonClick, this);
             
             // set up Background
-            this._setupBackground("WhiteBackground");
-            
+            //this._setupBackground("WhiteBackground");
+            this._setupBackground("BlackBackground")
             //FadeIn
             this._fadeIn(500);
             
