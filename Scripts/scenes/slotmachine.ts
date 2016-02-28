@@ -8,6 +8,8 @@ module scenes {
         private _bet10Button: objects.Button;
         private _bet100Button: objects.Button;
         private _spinButton: objects.Button;
+        private _resetButton: objects.Button;
+        private _quitButton: objects.Button;
 
         private _reels: createjs.Bitmap[];
 
@@ -16,8 +18,6 @@ module scenes {
         private _betText: objects.Label;
         private _resultText: objects.Label;
 
-        private _resetButton: objects.Button;
-        private _quitButton: objects.Button;
 
         private playerMoney: number;
         private winnings: number;
@@ -202,7 +202,7 @@ module scenes {
         
         
         /* Check to see if the player won the jackpot */
-        private checkJackPot(): void {
+        private _checkJackPot(): void {
             /* compare two random values */
             var jackPotTry = Math.floor(Math.random() * 51 + 1);
             var jackPotWin = Math.floor(Math.random() * 51 + 1);
@@ -317,6 +317,8 @@ module scenes {
         }
         
         //EVENT HANDLERS ++++++++++++++++++++
+       
+        
         private _bet1ButtonClick(event: createjs.MouseEvent): void {
             console.log("Bet 1 Credit");
             this._placeBet(1);
@@ -333,13 +335,22 @@ module scenes {
         }
 
         private _resetButtonClick(event: createjs.MouseEvent): void {
-            console.log("click the reset");
+              
+            this._resetAll();
+            this._creditsText.text = this.playerMoney.toString();
+            this._betText.text = this.playerBet.toString();
+            this._resultText.text = this.winnings.toString();
+            this._jackpotText.text = this.jackpot.toString();
+            
         }
 
         private _quitButtonClick(event: createjs.MouseEvent): void {
             var response = confirm("Are you sure you want to Power OFF the game ?");
             if (response == true) {
-                window.close();
+                this._fadeOut(500, () => {
+                    scene = config.Scene.MENU;
+                    changeScene();
+                })
             }
         }
 
@@ -351,18 +362,18 @@ module scenes {
                 for (var reel: number = 0; reel < 3; reel++) {
                     this._reels[reel].image = assets.getResult(bitmap[reel]);
                 }
+                this._checkJackPot();
+                this._determineWinnings();
+                this._resetFruitTally();
 
-            this._determineWinnings();
-            this._resetFruitTally();
-
-            console.log(bitmap[0] + " - " + bitmap[1] + " - " + bitmap[2]);
-        }
-        else{
-            alert("You don't place a bet amount");
-        }
+                console.log(bitmap[0] + " - " + bitmap[1] + " - " + bitmap[2]);
+            }
+            else {
+                alert("You don't place a bet amount");
+            }
             //reset player's bet to the zero
             this.playerBet = 0;
-    this._betText.text = this.playerBet.toString();
-}
+            this._betText.text = this.playerBet.toString();
+        }
     }
 }

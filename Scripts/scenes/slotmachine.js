@@ -137,7 +137,7 @@ var scenes;
             return betLine;
         };
         /* Check to see if the player won the jackpot */
-        SlotMachine.prototype.checkJackPot = function () {
+        SlotMachine.prototype._checkJackPot = function () {
             /* compare two random values */
             var jackPotTry = Math.floor(Math.random() * 51 + 1);
             var jackPotWin = Math.floor(Math.random() * 51 + 1);
@@ -256,12 +256,19 @@ var scenes;
             this._placeBet(100);
         };
         SlotMachine.prototype._resetButtonClick = function (event) {
-            console.log("click the reset");
+            this._resetAll();
+            this._creditsText.text = this.playerMoney.toString();
+            this._betText.text = this.playerBet.toString();
+            this._resultText.text = this.winnings.toString();
+            this._jackpotText.text = this.jackpot.toString();
         };
         SlotMachine.prototype._quitButtonClick = function (event) {
             var response = confirm("Are you sure you want to Power OFF the game ?");
             if (response == true) {
-                window.close();
+                this._fadeOut(500, function () {
+                    scene = config.Scene.MENU;
+                    changeScene();
+                });
             }
         };
         SlotMachine.prototype._spinButtonClick = function (event) {
@@ -271,6 +278,7 @@ var scenes;
                 for (var reel = 0; reel < 3; reel++) {
                     this._reels[reel].image = assets.getResult(bitmap[reel]);
                 }
+                this._checkJackPot();
                 this._determineWinnings();
                 this._resetFruitTally();
                 console.log(bitmap[0] + " - " + bitmap[1] + " - " + bitmap[2]);
