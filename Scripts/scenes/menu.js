@@ -25,7 +25,7 @@ var scenes;
             this._startButton.on("click", this._startButtonClick, this);
             // set up Background
             //this._setupBackground("WhiteBackground");
-            this._setupBackground(assets.getResult("BlackBackground"));
+            this._setupBackground("BlackBackground");
             //FadeIn
             this._fadeIn(500);
             // add this scene to the global stage container

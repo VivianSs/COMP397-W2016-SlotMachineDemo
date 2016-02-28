@@ -34,7 +34,7 @@ module scenes {
             
             // set up Background
             //this._setupBackground("WhiteBackground");
-            this._setupBackground(assets.getResult("BlackBackground"))
+            this._setupBackground("BlackBackground");
             //FadeIn
             this._fadeIn(500);
             
