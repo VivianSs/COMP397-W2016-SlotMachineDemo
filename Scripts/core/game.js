@@ -24,47 +24,22 @@ var assetData = [
     { id: "ResetButton", src: "../../Assets/images/ResetButton.png" },
     { id: "QuitButton", src: "../../Assets/images/QuitButton.png" },
     { id: "BlackBackground", src: "../../Assets/images/BlackBackground.png" },
-    { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" }
+    { id: "WhiteBackground", src: "../../Assets/images/WhiteBackground.png" },
+    { id: "Banana", src: "../../Assets/images/Banana.png" },
+    { id: "Orange", src: "../../Assets/images/Orange.png" },
+    { id: "Blank", src: "../../Assets/images/Blank.png" },
+    { id: "Grapes", src: "../../Assets/images/Grapes.png" },
+    { id: "Bar", src: "../../Assets/images/Bar.png" },
+    { id: "Bell", src: "../../Assets/images/Bell.png" },
+    { id: "Cherry", src: "../../Assets/images/Cherry.png" },
+    { id: "Seven", src: "../../Assets/images/Seven.png" }
 ];
-var data = {
-    "images": [
-        "../../Assets/images/atlas.png"
-    ],
-    "frames": [
-        [0, 2, 44, 44, 0, 0, 0],
-        [0, 46, 44, 44, 0, 0, 0],
-        [0, 90, 44, 44, 0, 0, 0],
-        [44, 2, 44, 44, 0, 0, 0],
-        [88, 2, 44, 44, 0, 0, 0],
-        [132, 2, 64, 64, 0, 0, 0],
-        [132, 66, 64, 64, 0, 0, 0],
-        [44, 46, 44, 44, 0, 0, 0],
-        [88, 46, 44, 44, 0, 0, 0],
-        [132, 130, 64, 64, 0, 0, 0],
-        [44, 90, 44, 44, 0, 0, 0],
-        [132, 194, 64, 64, 0, 0, 0]
-    ],
-    "animations": {
-        "Banana": [0],
-        "Bar": [1],
-        "Bell": [2],
-        "Blank": [3],
-        "Cherry": [4],
-        "Bet100Button": [5],
-        "Bet10Button": [6],
-        "Grapes": [7],
-        "Orange": [8],
-        "Bet1Button": [9],
-        "Seven": [10],
-        "SpinButton": [11]
-    },
-};
 function preload() {
     assets = new createjs.LoadQueue();
     assets.installPlugin(createjs.Sound);
     assets.on("complete", init, this);
     assets.loadManifest(assetData);
-    atlas = new createjs.SpriteSheet(data);
+    //  atlas = new createjs.SpriteSheet(data);
 }
 function init() {
     // create a reference the HTML canvas Element
@@ -131,4 +106,5 @@ function changeScene() {
     }
     console.log(currentScene.numChildren);
 }
+window.onload = preload;
 //# sourceMappingURL=game.js.map
