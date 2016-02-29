@@ -19,3 +19,5 @@ canvas {
     margin: 0 auto;  
     background-image: url("../../Assets/images/RedBackground.jpg");
 }
+
+div#preload { display: none; }
